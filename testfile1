@@ -1,0 +1,147 @@
+==================
+package management
+===================
+what are the extension format used for operating Systems
+==================================================
+
+https://download.virtualbox.org/virtualbox/7.2.8/VirtualBox-7.2.8-173730-Win.exe (windows)
+https://download.virtualbox.org/virtualbox/7.2.8/VirtualBox-7.2.8-173730-macOSArm64.dmg (mac)
+https://download.virtualbox.org/virtualbox/7.2.8/VirtualBox-7.2-7.2.8_173730_el10-1.x86_64.rpm (redhat/centos/oracle/amazon Linux)
+https://download.virtualbox.org/virtualbox/7.2.8/virtualbox-7.2_7.2.8-173730~Ubuntu~resolute_amd64.deb(ubuntu)
+
+Introduction to Package Management
+=================================
+
+==> When we install applications in windows, we use .exe files. In Linux software is installed through packages. Package management helps us to install , update, remove and manage software efficiently.
+
+Package : Collection of software files
+
+Package Manager :  Tools used to manage packages.
+
+In Redhat based systems
+     RPM --> Redhat Package Manager
+     YUM --> Yellowdog Updater Modified
+
+
+how to install the packages?
+========================
+
+In windows next-->next-->next -->instrall -->finish
+
+In Linux --> Through rpm and yum commands [ rpm -ivh packagename & yum install packagename]
+
+In Mac  --> Through brew command [ brew install package-name]
+
+In Ubuntu --> Through apt or apt-get command [ apt install package-name]
+
+=================================================
+How to verify if the package or software is installed or not?
+=================================================
+
+Control Panel --> Programs --> Programs & Features --> Verify or uninstall softwares [ windows env]
+
+
+===========================================
+Querying and Verifying the packages in Linux 
+============================================
+
+If the package is installed or not?
+
+
+syn : rpm options <package-name>
+           
+                 -q(query)
+                 -a (all)
+                 -i (info)
+                 -d (documentation)
+                 -l( list all the files from that package)
+                 -c ( configuration files)
+                 -f ( files from which package)
+
+
+# How do you know if the specified package is installed or not?
+$ rpm -qa kernel
+
+# to know how many packages are installed
+$ rpm -qa
+
+$ rpm -qa | wc -l
+
+$ rpm -qi
+
+Q) Can RPM automatically install missing dependencies?
+NO
+This dependency problem is solved by YUM
+
+==================================================
+Install, Remove and Upgrading the packages through rpm
+==================================================
+
+
+==> By using rpm we can install only one package at a time and it will not resolve the dependency packages.
+
+==> We need to download from web by using wget command and install the package by rpm command.
+
+syn: rpm options package-name
+                  -i (install)
+                  -v ( Verbose to see installation status)
+                   -e (remove)
+                   -h ( hash ###### check)
+                    -U (upgrade the package)
+                     
+         --force (install forcefully even if it is already installed)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+How to download the packages from web by using wget command
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# wget <url-name>
+
+============================
+YUM(Yellowdog Updater Modified)
+=============================
+
+YUM is a package manager built on RPM that automatically resolve dependencies.
+
+Advantages:
+===========
+Dependency management
+Download packages automatically
+Uses yum repositories 
+Easy updates
+ 
+Yum repository:  Repository is a storage location where Linux packages are kept.
+
+# check repositories
+$ yum repolist
+
+# install packages
+$ yum install wget -y  [ -y is nothing but automcatically answer "yes"]
+
+# Update package
+$ yum update wget
+
+# remove package
+$ yum remove wget
+
+# update all packages
+$ yum update
+
+# search package
+$ yum search wget
+
+#get package information
+$yum info wget
+
+# list Installed packages
+$ yum list installed
+
+# check package history
+$ yum history
+
+# clean cache
+$ yum clean all
+
+
+========================================
+release or deployment of apache and tomcat
+========================================
